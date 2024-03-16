@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="script.js" href="stylesheet">
+<title>EconomyLab</title>
+</head>
+<body>
+    <div>
+<h2>Aportes.Lab</h2>
+<p>Calcule seus aportes financeiros com base no prazo desejado e valor final de resgate.</p>
+<label for="rendaMensal">Renda Mensal:</label>
+<input type="number" id="rendaMensal"><br><br>
+<label for="gastosMensais">Gastos Mensais:</label>
+<input type="number" id="gastosMensais"><br><br>
+<label for="metaEconomia">Meta de Economia:</label>
+<input type="number" id="metaEconomia"><br><br>
+<label for="porcentagemRendimento">Quanatidade de aportes (meses):</label>
+<input type="number" id="porcentagemRendimento"><br><br>
+</div>
+
+<script>
+    
+function calcularRecomendacao() {
+    var rendaMensal = parseFloat(document.getElementById("rendaMensal").value);
+    var gastosMensais = parseFloat(document.getElementById("gastosMensais").value);
+    var metaEconomia = parseFloat(document.getElementById("metaEconomia").value);
+    var porcentagemRendimento = parseFloat(document.getElementById("porcentagemRendimento").value);
+
+    var ganhosMensais = rendaMensal - gastosMensais;
+
+    var economiaMensal = metaEconomia / porcentagemRendimento;
+
+    var mesesNecessarios = Math.ceil(metaEconomia / economiaMensal);
+
+    var recomendacaoInicial = economiaMensal * 0.5; 
+    var recomendacaoFinal = economiaMensal * 1.5;
+
+    var recomendacaoElement = document.getElementById("recomendacao");
+    recomendacaoElement.textContent = "Para alcançar sua meta de economia em " + mesesNecessarios + " meses, recomenda-se guardar mensalmente entre R$ " + recomendacaoInicial.toFixed(2) + " e R$ " + recomendacaoFinal.toFixed(2) + ".";
+}
+
+</script>
+
+<div1>
+<button onclick="calcularRecomendacao()">Calcular Recomendação</button><p id="recomendacao"></p>
+</div1>
+
+</body>
+</html>
+
